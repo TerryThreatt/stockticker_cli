@@ -1,0 +1,4 @@
+- A command line interface for getting daily stock quotes
+- Users type name/ticker symbol
+- Show company names 
+- List selected company stock prices  
