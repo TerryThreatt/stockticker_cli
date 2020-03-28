@@ -14,7 +14,7 @@ class StocktickerCli::CLI
     def menu
         puts "Which stock would you like to get a quote for?"
 
-        input = gets.strip
+        input = gets.strip.upcase 
 
         StocktickerCli::API.query(input)
     end 
