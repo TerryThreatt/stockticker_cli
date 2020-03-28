@@ -1,5 +1,5 @@
 
-class StocktickerCli::Stock 
+class StocktickerCli::STOCK 
     attr_accessor :name, :price 
 
     def stock 
