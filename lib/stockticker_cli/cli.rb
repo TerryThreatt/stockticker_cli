@@ -13,7 +13,7 @@ class StocktickerCli::CLI
     end 
     
     def menu
-        puts "Type in a ticker symbol to get a quote?"
+        puts "Type in a valid ticker symbol to get a quote?"
 
         input = gets.strip.upcase 
 
@@ -26,7 +26,7 @@ class StocktickerCli::CLI
     end 
 
     def submenu 
-        puts "Which stock would you like to get a quote for?"
+        puts "Would you like to get more information about this stock"
         puts "Type 'y' for more info or 'n' to exit"
         
         input = gets.strip.downcase 
