@@ -1,8 +1,8 @@
 
 # "symbol"=>"PAYX", "name"=>"Paychex, Inc.", "price"=>60.17
 
-class StocktickerCli::STOCK 
-    attr_accessor :symbol, :name, :price  
+class StocktickerCli::STOCKINFO 
+    attr_accessor :symbol, :price, :changes, :companyName, :industry, :website, :description, :sector
 
     @@all = []
     def initialize(args) 
