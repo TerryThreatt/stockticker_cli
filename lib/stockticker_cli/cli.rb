@@ -46,6 +46,7 @@ class StocktickerCli::CLI
         input = gets.strip.downcase 
         
         if (input == 'yes')
+
             StocktickerCli::STOCKINFO.all.each do |s|
                 puts ""
                 puts "#{s.symbol} - #{s.companyName} - $#{s.price}"

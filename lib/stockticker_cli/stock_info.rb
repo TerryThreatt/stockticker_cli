@@ -10,15 +10,19 @@ class StocktickerCli::STOCKINFO
             # checks if method exists for instance of stock
             self.send("#{k}=", v) if self.respond_to?(k)
         end 
-        @@all << self
+        save 
     end 
 
     def self.all 
         @@all 
     end 
 
+    def save
+        @@all << self 
+    end  
 
-    def self.delete 
+
+    def self.reset_all 
         @@all.clear 
     end 
 

@@ -1,11 +1,12 @@
 class StocktickerCli::API
     BASE_URL = 'https://fmpcloud.io/api/v3/'
-    API_KEY = '4b31fc84cd3248a0f61868b96f531bde'
+    KEY = ENV["API_KEY"]
+    # API_KEY = '4b31fc84cd3248a0f61868b96f531bde'
 
     
     # Api call 
     def self.query(query) 
-        results = RestClient.get("#{BASE_URL}quote/#{query}?apikey=#{API_KEY}") 
+        results = RestClient.get("#{BASE_URL}quote/#{query}?apikey=#{KEY}") 
         json = JSON.parse(results) 
         # binding.pry 
 
@@ -17,7 +18,7 @@ class StocktickerCli::API
     end 
 
     def self.info_query(query) 
-        results = RestClient.get("#{BASE_URL}profile/#{query}?apikey=#{API_KEY}")
+        results = RestClient.get("#{BASE_URL}profile/#{query}?apikey=#{KEY}")
         json = JSON.parse(results)
 
         # iterating through results and creating stock info instances
