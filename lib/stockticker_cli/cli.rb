@@ -23,7 +23,7 @@ class StocktickerCli::CLI
         elsif input != 'EXIT' 
             # API call 
             stock_query = StocktickerCli::API.query(input) 
-            info_query = StocktickerCli::API.info_query(input)
+            info_query = StocktickerCli::API.info_query(StocktickerCli::STOCK.all.last)
 
             # Return 
             StocktickerCli::STOCK.all.each do |s|
@@ -47,8 +47,9 @@ class StocktickerCli::CLI
         
         if (input == 'yes')
 
-            StocktickerCli::STOCKINFO.all.each do |s|
-                puts ""
+            # StocktickerCli::STOCKINFO.all.each do |s|
+            s = StocktickerCli::STOCK.all.last 
+                puts ""        
                 puts "#{s.symbol} - #{s.companyName} - $#{s.price}"
                 puts "change: #{s.changes}"
                 puts "sector: #{s.sector}"
@@ -57,7 +58,7 @@ class StocktickerCli::CLI
                 puts "description: #{s.description}"
                 puts ""
                 menu
-            end 
+            # end 
         elsif (input == 'exit')
             goodbye
         else 

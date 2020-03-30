@@ -13,18 +13,12 @@ class StocktickerCli::API
         # iterating through results and creating stock instances
         json.each do |stock_hash|
            StocktickerCli::STOCK.new(stock_hash) 
-        end 
-        # binding.pry 
+        end  
     end 
 
-    def self.info_query(query) 
-        results = RestClient.get("#{BASE_URL}profile/#{query}?apikey=#{KEY}")
+    def self.info_query(stock_obj)
+        results = RestClient.get("#{BASE_URL}profile/#{stock_obj.symbol}?apikey=#{KEY}")
         json = JSON.parse(results)
-
-        # iterating through results and creating stock info instances
-        json.each do |stock_info_hash|
-            StocktickerCli::STOCKINFO.new(stock_info_hash) 
-        end 
-        # binding.pry 
+        stock_obj.set_attributes(json[0])
     end 
 end 
