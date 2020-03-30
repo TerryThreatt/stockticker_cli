@@ -1,8 +1,6 @@
 # StocktickerCli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/stockticker_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the Stock Ticker CLI app! This gem will allow you to find real-time stock quotes and gain additional company information for each stock. 
 
 ## Installation
 
@@ -22,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Enter a valid ticker symbol for company you would like to get a stock price for. 
+2. You will have a option to receive additional information about company. 
+3. You have the option to exit or get more stock prices. 
 
 ## Development
 
