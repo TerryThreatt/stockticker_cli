@@ -3,4 +3,5 @@
 - show menu 
 - Users type name/ticker symbol
 - Show company names 
-- List selected company stock prices  
+- List selected company stock prices
+- Give option to receive more info   

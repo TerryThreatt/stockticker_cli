@@ -13,9 +13,13 @@ class StocktickerCli::STOCKINFO
         @@all << self
     end 
 
-
     def self.all 
         @@all 
+    end 
+
+
+    def self.delete 
+        @@all.clear 
     end 
 
 end 

@@ -6,11 +6,12 @@ class StocktickerCli::API
     # Api call 
     def self.query(query) 
         results = RestClient.get("#{BASE_URL}quote/#{query}?apikey=#{API_KEY}") 
-        json = JSON.parse(results)
+        json = JSON.parse(results) 
+        # binding.pry 
 
         # iterating through results and creating stock instances
         json.each do |stock_hash|
-            StocktickerCli::STOCK.new(stock_hash) 
+           StocktickerCli::STOCK.new(stock_hash) 
         end 
         # binding.pry 
     end 
@@ -19,7 +20,7 @@ class StocktickerCli::API
         results = RestClient.get("#{BASE_URL}profile/#{query}?apikey=#{API_KEY}")
         json = JSON.parse(results)
 
-        # iterating through results and creating stock instances
+        # iterating through results and creating stock info instances
         json.each do |stock_info_hash|
             StocktickerCli::STOCKINFO.new(stock_info_hash) 
         end 

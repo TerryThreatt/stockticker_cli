@@ -16,6 +16,10 @@ class StocktickerCli::STOCK
 
     def self.all 
         @@all 
+    end
+    
+    def self.delete 
+        @@all.clear 
     end 
 
 end 
