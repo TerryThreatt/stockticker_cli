@@ -1,7 +1,7 @@
 class StocktickerCli::API
     BASE_URL = 'https://fmpcloud.io/api/v3/'
     KEY = ENV["API_KEY"]
-    # API_KEY = '4b31fc84cd3248a0f61868b96f531bde'
+
 
     
     # Api call 
