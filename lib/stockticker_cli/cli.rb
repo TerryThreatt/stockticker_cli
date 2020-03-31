@@ -14,22 +14,28 @@ class StocktickerCli::CLI
     end 
     
     def menu
-        puts "Type in a valid ticker symbol to get a quote or type 'exit' to quit the cli app"
+        puts "Would you like to view the top gainers in the stock market today?"
+        sleep(1)
+        puts ""
+        puts "Type 'yes' to view gainers or type 'exit' to quit the cli app"
         puts ""
 
-        input = gets.strip.upcase 
+        input = gets.strip.downcase
 
-        if input == 'EXIT'
+        if input == 'exit'
             goodbye
-        elsif input != 'EXIT' 
+        elsif input == 'yes' 
             # API call 
             puts ""
-            stock_query = StocktickerCli::API.query(input) 
+            stock_query = StocktickerCli::API.query
             info_query = StocktickerCli::API.info_query(StocktickerCli::STOCK.all.last)
 
             # Return 
-            StocktickerCli::STOCK.all.each do |s|
-                puts "#{s.symbol} - #{s.name} - $#{s.price}" 
+            puts "Pick a stock from the list"
+            puts ""
+            puts "List:"
+            StocktickerCli::STOCK.all.each.with_index(1) do |s, i|
+                puts "#{i}. #{s.ticker} - #{s.companyName} - $#{s.price} - #{s.changesPercentage}" 
             end 
 
             puts ""
@@ -47,14 +53,11 @@ class StocktickerCli::CLI
         puts ""
         puts "Type 'yes' for more info or 'exit' to exit"
         
-        input = gets.strip.downcase 
+        input = gets.strip 
         
         if (input == 'yes')
-
-            # StocktickerCli::STOCKINFO.all.each do |s|
             sleep(1)
-            puts ""
-            s = StocktickerCli::STOCK.all.last 
+            s = StocktickerCli::STOCK.all
                 puts ""        
                 puts "#{s.symbol} - #{s.companyName} - $#{s.price}"
                 puts ""
@@ -66,7 +69,6 @@ class StocktickerCli::CLI
                 puts "Description: #{s.description}"
                 puts ""
                 menu
-            # end 
         elsif (input == 'exit')
             goodbye
         else 

@@ -5,8 +5,9 @@ class StocktickerCli::API
 
     
     # Api call 
-    def self.query(query) 
-        results = RestClient.get("#{BASE_URL}quote/#{query}?apikey=#{KEY}") 
+    def self.query
+        # https://fmpcloud.io/api/v3/actives?apikey=4b31fc84cd3248a0f61868b96f531bde
+        results = RestClient.get("#{BASE_URL}actives?apikey=#{KEY}") 
         json = JSON.parse(results) 
         # binding.pry 
 
@@ -17,7 +18,7 @@ class StocktickerCli::API
     end 
 
     def self.info_query(stock_obj)
-        results = RestClient.get("#{BASE_URL}profile/#{stock_obj.symbol}?apikey=#{KEY}")
+        results = RestClient.get("#{BASE_URL}profile/#{stock_obj.ticker}?apikey=#{KEY}")
         json = JSON.parse(results)
         stock_obj.set_attributes(json[0])
     end 
