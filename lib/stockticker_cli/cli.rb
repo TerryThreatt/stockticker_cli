@@ -27,7 +27,7 @@ class StocktickerCli::CLI
             # API call 
             puts ""
             stock_query = StocktickerCli::API.query
-
+            
             # Return 
             puts "Pick a stock from the list"
             puts ""
@@ -53,7 +53,8 @@ class StocktickerCli::CLI
      
         if (input.between?(0, 10))
             s = StocktickerCli::STOCK.all[input - 1]
-            StocktickerCli::API.info_query(s) 
+            StocktickerCli::API.info_query(s)
+            binding.pry  
             puts ""       
             puts "#{s.symbol} - #{s.companyName} - $#{s.price}"
             puts ""
