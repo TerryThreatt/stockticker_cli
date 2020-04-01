@@ -8,7 +8,10 @@ class StocktickerCli::CLI
     def welcome 
         puts "Welcome to the stock ticker cli app!"
         puts ""
+        puts "Please sign-up for a free account to use this app here: https://fmpcloud.io/register"
         sleep(1)
+        puts "Please enter your api key to continue."
+        $KEY = gets.strip
         menu 
     end 
     
@@ -53,8 +56,7 @@ class StocktickerCli::CLI
      
         if (input.between?(0, 10))
             s = StocktickerCli::STOCK.all[input - 1]
-            StocktickerCli::API.info_query(s)
-            binding.pry  
+            StocktickerCli::API.info_query(s) 
             puts ""       
             puts "#{s.symbol} - #{s.companyName} - $#{s.price}"
             puts ""
