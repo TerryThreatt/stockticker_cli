@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    stockticker_cli (0.1.0)
+    stockticker_cli (0.1.1)
       dotenv
       json
       pry
