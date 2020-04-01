@@ -20,8 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-1. Choose to receive the top gainers in the stock market today. 
-2. You will have a option to receive additional information about company. 
+1. Type 'stockticker' in your terminal.
+2. Choose to receive the top gainers in the stock market today.
+3. You will have a option to receive additional information about company. 
 
 ## Development
 
