@@ -20,9 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
-1. Enter a valid ticker symbol for company you would like to get a stock price for. 
+1. Choose to receive the top gainers in the stock market today. 
 2. You will have a option to receive additional information about company. 
-3. You have the option to exit or get more stock prices. 
 
 ## Development
 
