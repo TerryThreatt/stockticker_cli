@@ -20,6 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
+***Please sign-up for a free account to use this app here: https://fmpcloud.io/register***
+
 1. Type 'stockticker' in your terminal.
 2. Choose to receive the top gainers in the stock market today.
 3. You will have a option to receive additional information about company. 
