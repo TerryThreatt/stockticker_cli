@@ -21,4 +21,8 @@ class StocktickerCli::STOCK
         @@all 
     end
 
+    def self.reset 
+        @@all.clear  
+    end
+
 end 

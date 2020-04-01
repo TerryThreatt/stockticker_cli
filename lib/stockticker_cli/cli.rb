@@ -1,4 +1,3 @@
-require_relative './api'
 
 class StocktickerCli::CLI  
     
@@ -53,7 +52,7 @@ class StocktickerCli::CLI
         input = gets.strip.to_i
      
         if (input.between?(0, 10))
-            s = StocktickerCli::STOCK.all[input.to_i - 1]
+            s = StocktickerCli::STOCK.all[input - 1]
             StocktickerCli::API.info_query(s) 
             puts ""       
             puts "#{s.symbol} - #{s.companyName} - $#{s.price}"
@@ -65,8 +64,9 @@ class StocktickerCli::CLI
             puts ""
             puts "Description: #{s.description}"
             puts ""
-            sleep(2)
-            goodbye  
+            sleep(1.5)
+            StocktickerCli::STOCK.reset 
+            menu
         else
           puts "Please try again"
           submenu

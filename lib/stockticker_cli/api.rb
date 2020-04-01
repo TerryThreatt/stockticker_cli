@@ -13,7 +13,7 @@ class StocktickerCli::API
 
         # iterating through results and creating stock instances
         json.each do |stock_hash|
-           StocktickerCli::STOCK.new(stock_hash)
+           StocktickerCli::STOCK.new(stock_hash) 
         end  
     end 
 
