@@ -28,12 +28,11 @@ class StocktickerCli::CLI
             # API call 
             puts ""
             stock_query = StocktickerCli::API.query
-            info_query = StocktickerCli::API.info_query(StocktickerCli::STOCK.all.last)
 
             # Return 
             puts "Pick a stock from the list"
             puts ""
-            puts "List:"
+            puts "Gainers List:"
             StocktickerCli::STOCK.all.each.with_index(1) do |s, i|
                 puts "#{i}. #{s.ticker} - #{s.companyName} - $#{s.price} - #{s.changesPercentage}" 
             end 
@@ -48,35 +47,31 @@ class StocktickerCli::CLI
     end 
 
     def submenu 
-        puts "Would you like to get more information about this stock"
+        puts "Type a number between '1 - 10' on gainers list for more information on the stock."
         sleep(1)
-        puts ""
-        puts "Type 'yes' for more info or 'exit' to exit"
         
-        input = gets.strip 
-        
-        if (input == 'yes')
-            sleep(1)
-            s = StocktickerCli::STOCK.all
-                puts ""        
-                puts "#{s.symbol} - #{s.companyName} - $#{s.price}"
-                puts ""
-                puts "Change: $#{s.changes}"
-                puts "Sector: #{s.sector}"
-                puts "Industry: #{s.industry}"
-                puts "Website: #{s.website}"
-                puts ""
-                puts "Description: #{s.description}"
-                puts ""
-                menu
-        elsif (input == 'exit')
-            goodbye
-        else 
-            puts "Try again"
+        input = gets.strip.to_i
+     
+        if (input.between?(0, 10))
+            s = StocktickerCli::STOCK.all[input.to_i - 1]
+            StocktickerCli::API.info_query(s) 
+            puts ""       
+            puts "#{s.symbol} - #{s.companyName} - $#{s.price}"
             puts ""
-            submenu
-        end     
-    end 
+            puts "Change: $ #{s.changes}"
+            puts "Sector: #{s.sector}"
+            puts "Industry: #{s.industry}"
+            puts "Website: #{s.website}"
+            puts ""
+            puts "Description: #{s.description}"
+            puts ""
+            sleep(2)
+            goodbye  
+        else
+          puts "Please try again"
+          submenu
+        end
+end  
 
     def goodbye
         puts "Happy Trading"
