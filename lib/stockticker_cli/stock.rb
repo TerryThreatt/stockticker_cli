@@ -25,4 +25,8 @@ class StocktickerCli::STOCK
         @@all.clear  
     end
 
+    def self.stock_exists?
+        @@all.empty? 
+    end 
+
 end 

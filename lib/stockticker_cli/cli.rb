@@ -29,7 +29,10 @@ class StocktickerCli::CLI
         elsif input == 'yes' 
             # API call 
             puts ""
-            stock_query = StocktickerCli::API.query
+
+            if StocktickerCli::STOCK.stock_exists?
+                stock_query = StocktickerCli::API.query
+            end 
             
             # Return 
             puts "Pick a stock from the list"
